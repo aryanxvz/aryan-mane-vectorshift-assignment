@@ -1,6 +1,6 @@
 import { BaseNode } from '../components/baseNode';
 
-export const CustomNode1 = ({ id }) => {
+export const CustomNode5 = ({ id }) => {
   return (
     <BaseNode
       id={id}

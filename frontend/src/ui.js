@@ -29,7 +29,7 @@ const nodeTypes = {
   math: MathNode,
   timer: TimerNode,
   random: RandomNode,
-  custom5: CustomNode1
+  custom5: CustomNode5,
 };
 
 const selector = (state) => ({
