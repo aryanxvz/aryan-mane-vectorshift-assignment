@@ -11,7 +11,7 @@ import { MathNode } from './nodes/mathNode';
 import { TimerNode } from './nodes/timerNode';
 import { RandomNode } from './nodes/randomNode';
 import { CustomNode5 } from './nodes/customNode5';
-
+import { GradientOverlay } from './components/gradientOverlay';
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
@@ -65,7 +65,6 @@ export function PipelineUI() {
         const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
         const type = appData?.nodeType;
   
-        // check if the dropped element is valid
         if (typeof type === 'undefined' || !type) {
           return;
         }
@@ -97,8 +96,7 @@ export function PipelineUI() {
   return (
     <>
       <div className='w-full h-[100vh] relative' ref={reactFlowWrapper}>
-        <div className='absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none'/>
-        <div className='absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none'/>
+        <GradientOverlay />
         <ReactFlow
           nodes={nodes}
           edges={edges}

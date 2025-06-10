@@ -16,6 +16,7 @@ export const MathNode = ({ id, data }) => {
       inputHandles={inputHandles}
       outputHandles={outputHandles}
     >
+
       <div className="flex flex-col space-y-1">
         <label>Operation</label>
         <select
@@ -27,6 +28,7 @@ export const MathNode = ({ id, data }) => {
           <option value="subtract">Subtract (-)</option>
         </select>
       </div>
+      
     </BaseNode>
   )
 }

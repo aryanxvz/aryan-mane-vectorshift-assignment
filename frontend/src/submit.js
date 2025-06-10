@@ -1,4 +1,3 @@
-import React from 'react';
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
 import { toast } from 'react-toastify';
@@ -12,14 +11,12 @@ export const SubmitButton = () => {
   const { nodes, edges } = useStore(selector, shallow);
   
   const handleSubmit = async () => {
-    // Show loading toast
     const toastId = toast.loading('Analyzing pipeline...');
     
     try {
-      // Basic validation
       if (nodes.length === 0) {
         toast.update(toastId, {
-          render: 'Please add at least one node to the pipeline',
+          render: 'Add at least one node to the pipeline',
           type: 'error',
           isLoading: false,
           autoClose: 3000,
@@ -44,7 +41,6 @@ export const SubmitButton = () => {
 
       const data = await response.json();
       
-      // Success notification
       toast.update(toastId, {
         render: (
           <div>

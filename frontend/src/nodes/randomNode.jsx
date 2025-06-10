@@ -14,6 +14,7 @@ export const RandomNode = ({ id, data }) => {
       title="Random"
       outputHandles={outputHandles}
     >
+
       <div className="space-y-3">
         <div className="flex flex-col space-y-1">
           <label>Type</label>
@@ -39,6 +40,7 @@ export const RandomNode = ({ id, data }) => {
                 className="bg-white/20 border border-gray-300/30 rounded-lg px-3 py-1 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent"
               />
             </div>
+            
             <div className="flex flex-col space-y-1">
               <label>Max Value</label>
               <input
@@ -51,6 +53,7 @@ export const RandomNode = ({ id, data }) => {
           </div>
         )}
       </div>
+
     </BaseNode>
   )
 }

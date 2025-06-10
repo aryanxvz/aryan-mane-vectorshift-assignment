@@ -14,6 +14,7 @@ export const OutputNode = ({ id, data }) => {
         style: { top: '50%' }
       }]}
     >
+
       <div className="space-y-3">
         <div className="flex flex-col space-y-1">
           <label>Output Name</label>
@@ -38,6 +39,7 @@ export const OutputNode = ({ id, data }) => {
           </select>
         </div>
       </div>
+      
     </BaseNode>
   )
 }

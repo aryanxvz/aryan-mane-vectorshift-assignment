@@ -18,6 +18,7 @@ export const TimerNode = ({ id, data }) => {
       title="Timer"
       outputHandles={outputHandles}
     >
+
       <div className="space-y-3">
         <div className="flex flex-col space-y-1">
           <label>Delay (ms)</label>
@@ -29,6 +30,7 @@ export const TimerNode = ({ id, data }) => {
             min="0"
           />
         </div>
+        
         <button
           onClick={handleStart}
           disabled={isRunning}
@@ -47,6 +49,7 @@ export const TimerNode = ({ id, data }) => {
           )}
         </button>
       </div>
+
     </BaseNode>
   )
 }
