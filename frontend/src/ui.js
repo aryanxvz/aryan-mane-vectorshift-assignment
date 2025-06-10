@@ -10,7 +10,7 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
-import { CustomNode1 } from './nodes/customNode1'
+import { CustomNode4 } from './nodes/customNode4'
 import { MathNode } from './nodes/mathNode'
 import { TimerNode } from './nodes/timerNode'
 import { RandomNode } from './nodes/randomNode'
@@ -25,10 +25,10 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
-  custom1: CustomNode1,
   math: MathNode,
   timer: TimerNode,
   random: RandomNode,
+  custom4: CustomNode4,
   custom5: CustomNode5,
 };
 
@@ -100,25 +100,28 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                onDrop={onDrop}
-                onDragOver={onDragOver}
-                onInit={setReactFlowInstance}
-                nodeTypes={nodeTypes}
-                proOptions={proOptions}
-                snapGrid={[gridSize, gridSize]}
-                connectionLineType='smoothstep'
-            >
-                <Background color="#aaa" gap={gridSize} />
-                <Controls />
-                <MiniMap />
-            </ReactFlow>
+        <div className='w-full h-[100vh] relative' ref={reactFlowWrapper}>
+          <div className='absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none'/>
+          <div className='absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none'/>
+          <ReactFlow
+              nodes={nodes}
+              edges={edges}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
+              onConnect={onConnect}
+              onDrop={onDrop}
+              onDragOver={onDragOver}
+              onInit={setReactFlowInstance}
+              nodeTypes={nodeTypes}
+              proOptions={proOptions}
+              snapGrid={[gridSize, gridSize]}
+              connectionLineType='smoothstep'
+              style={{ background: 'transparent' }}
+          >
+              <Background color="#030712" gap={gridSize} />
+              <Controls />
+              <MiniMap />
+          </ReactFlow>
         </div>
         </>
     )

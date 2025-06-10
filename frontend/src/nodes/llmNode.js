@@ -14,7 +14,7 @@ export const LLMNode = ({ id }) => {
       inputHandles={inputHandles}
       outputHandles={outputHandles}
     >
-      <p>This is a LLM.</p>
+      <p>This is an LLM node.</p>
     </BaseNode>
   )
 }

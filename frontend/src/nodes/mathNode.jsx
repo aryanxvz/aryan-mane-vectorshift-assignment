@@ -16,13 +16,17 @@ export const MathNode = ({ id, data }) => {
       inputHandles={inputHandles}
       outputHandles={outputHandles}
     >
-      <label>
-        Operation:
-        <select value={operation} onChange={(e) => setOperation(e.target.value)}>
+      <div className="flex flex-col space-y-1">
+        <label>Operation</label>
+        <select
+          value={operation}
+          onChange={(e) => setOperation(e.target.value)}
+          className="bg-white/20 border border-gray-300/30 rounded-lg px-3 py-1.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent appearance-none"
+        >
           <option value="add">Add (+)</option>
           <option value="subtract">Subtract (-)</option>
         </select>
-      </label>
+      </div>
     </BaseNode>
   )
 }

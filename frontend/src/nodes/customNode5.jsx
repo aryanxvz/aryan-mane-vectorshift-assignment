@@ -1,4 +1,4 @@
-import { BaseNode } from '../components/baseNode';
+import { BaseNode } from '../components/baseNode'
 
 export const CustomNode5 = ({ id }) => {
   return (
@@ -10,5 +10,5 @@ export const CustomNode5 = ({ id }) => {
     >
       <p>Custom node 5</p>
     </BaseNode>
-  );
-};
+  )
+}

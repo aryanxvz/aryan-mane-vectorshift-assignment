@@ -14,37 +14,43 @@ export const RandomNode = ({ id, data }) => {
       title="Random"
       outputHandles={outputHandles}
     >
+      <div className="space-y-3">
+        <div className="flex flex-col space-y-1">
+          <label>Type</label>
+          <select
+            value={randomType}
+            onChange={(e) => setRandomType(e.target.value)}
+            className="bg-white/20 border border-gray-300/30 rounded-lg px-3 py-1 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent appearance-none"
+          >
+            <option value="integer">Integer</option>
+            <option value="float">Float</option>
+            <option value="boolean">Boolean</option>
+          </select>
+        </div>
 
-      <label>
-        Type:
-        <select value={randomType} onChange={(e) => setRandomType(e.target.value)}>
-          <option value="integer">Integer</option>
-          <option value="float">Float</option>
-          <option value="boolean">Boolean</option>
-        </select>
-      </label><br />
-      
-      {randomType !== 'boolean' && (
-        <>
-          <label>
-            Min:
-            <input 
-              type="number" 
-              value={min} 
-              onChange={(e) => setMin(parseFloat(e.target.value))}
-            />
-          </label><br />
-          <label>
-            Max:
-            <input 
-              type="number" 
-              value={max} 
-              onChange={(e) => setMax(parseFloat(e.target.value))}
-            />
-          </label>
-        </>
-      )}
-
+        {randomType !== 'boolean' && (
+          <div className="space-y-3">
+            <div className="flex flex-col space-y-1">
+              <label>Min Value</label>
+              <input
+                type="number"
+                value={min}
+                onChange={(e) => setMin(parseFloat(e.target.value))}
+                className="bg-white/20 border border-gray-300/30 rounded-lg px-3 py-1 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent"
+              />
+            </div>
+            <div className="flex flex-col space-y-1">
+              <label>Max Value</label>
+              <input
+                type="number"
+                value={max}
+                onChange={(e) => setMax(parseFloat(e.target.value))}
+                className="bg-white/20 border border-gray-300/30 rounded-lg px-3 py-1 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent"
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </BaseNode>
   )
 }
