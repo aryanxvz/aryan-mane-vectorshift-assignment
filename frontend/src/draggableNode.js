@@ -19,7 +19,7 @@ export const DraggableNode = ({ type, label, icon }) => {
         shadow-sm hover:shadow-md hover:shadow-purple-500/20
         select-none
         transition-all duration-200
-        transform hover:scale-105 active:scale-95
+        transform hover:scale-105
         group
         text-gray-900
       `}
