@@ -5,7 +5,6 @@ from collections import defaultdict
 
 app = FastAPI()
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,30 +14,24 @@ app.add_middleware(
 )
 
 def is_dag(nodes: List[Dict], edges: List[Dict]) -> bool:
-    """Check if the graph is a Directed Acyclic Graph (DAG) using Kahn's algorithm"""
-    if not edges:  # If no edges, it's automatically a DAG
+    if not edges:
         return True
         
-    # Create adjacency list and in-degree count
     graph = defaultdict(list)
     in_degree = {}
     node_ids = [node['id'] for node in nodes]
     
-    # Initialize in_degree for all nodes
     for node_id in node_ids:
         in_degree[node_id] = 0
     
-    # Build graph and count in-degrees
     for edge in edges:
         source = edge['source']
         target = edge['target']
-        # Check for self-loops (node connected to itself)
         if source == target:
             return False
         graph[source].append(target)
         in_degree[target] += 1
     
-    # Initialize queue with nodes having 0 in-degree
     queue = [node_id for node_id in node_ids if in_degree[node_id] == 0]
     count = 0
     
@@ -51,8 +44,8 @@ def is_dag(nodes: List[Dict], edges: List[Dict]) -> bool:
             if in_degree[v] == 0:
                 queue.append(v)
     
-    # If count equals number of nodes, no cycle exists
     return count == len(node_ids)
+
 
 @app.get('/')
 def read_root():
